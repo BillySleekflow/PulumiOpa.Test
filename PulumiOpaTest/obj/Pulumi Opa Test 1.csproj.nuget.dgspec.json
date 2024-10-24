@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/kahongchan/Documents/ForTest/Pulumi Opa Test 1/Pulumi Opa Test 1/Pulumi Opa Test 1.csproj": {}
+  },
+  "projects": {
+    "/Users/kahongchan/Documents/ForTest/Pulumi Opa Test 1/Pulumi Opa Test 1/Pulumi Opa Test 1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/kahongchan/Documents/ForTest/Pulumi Opa Test 1/Pulumi Opa Test 1/Pulumi Opa Test 1.csproj",
+        "projectName": "Pulumi Opa Test 1",
+        "projectPath": "/Users/kahongchan/Documents/ForTest/Pulumi Opa Test 1/Pulumi Opa Test 1/Pulumi Opa Test 1.csproj",
+        "packagesPath": "/Users/kahongchan/.nuget/packages/",
+        "outputPath": "/Users/kahongchan/Documents/ForTest/Pulumi Opa Test 1/Pulumi Opa Test 1/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/kahongchan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Pulumi": {
+              "target": "Package",
+              "version": "[3.67.1, )"
+            },
+            "Pulumi.Azure": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
+            "Pulumi.AzureNative": {
+              "target": "Package",
+              "version": "[2.68.0, )"
+            },
+            "Pulumi.Docker": {
+              "target": "Package",
+              "version": "[4.5.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/kahongchan/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
