@@ -1,10 +1,10 @@
 config:
   auth0:client_id:
-    secure: AAABALNoQ7qkJzLMZ6Ng4VFjK2pFjvurqBR6zCUEwWa1VhwTwz3vmgAmidRL5Qt6kQshZFypEegSo2zUi1WQRQ==
+    secure: AAABAC9nVqtZJBP7Rm8B+XRTbzpsk2ZAYW4+Q53KlaWzMQraaPTI/Js8DOUh
   auth0:client_secret:
-    secure: AAABAM3C2LxKYvq2orahw2M1c0Wt1cXJNYCb1Fcm2xt6vVHwnR63PU92PC5DGzz5mT+Rmyz2vQHcUr7tQenetZ/k0OuymTY3pHZMpdjZ1kIzId45AYRwmQj85ymY0E2U
+    secure: AAABAPlkJX3Jq5Oxw2JhTXwEWgC60BrUiyvOv9oYetE1zRpxQC2fICLyVpWx3G+jsBXHwz2Ywctoz41kFieAp0D9bTH59XuRKBAwJLP0jUL/otduD1+vwMu2/yQWNl1N
   auth0:domain: sleekflow-dev.eu.auth0.com
-  azure-native:location: EastAsia
+  azure-native:location: eastasia
   pulumi:template: azure-csharp
   gcp:project-id: cool-phalanx-404402
   gcp:credential-json: ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAiY29vbC1waGFsYW54LTQwNDQwMiIsCiAgInByaXZhdGVfa2V5X2lkIjogIjUxNzBkNDZjOTljYTYzZDdhNTAzYzYzNzg4YjM5NWQ0MzZiOTA1NjUiLAogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ3o3dzhNcXRDNkF1ek5cbm5teklVU09XaFkyQVY1Y21MVzIzMW96T0RxSDBzTnhwbHNZVmd1QTdRWnROakNPQXpSL2paM1BMb1BGTk9nQmpcbjZUZm9Fb3h0Q1NPZG9RNHBXRG1xTENtKzF4UjI3WTg3N0h0dUo3U2FVYzdDWnJSY29UMko0MmhOVVY0ZHFNTzZcbkoxYnZjbHB0ZFpYWmlOMXRMQVhTTFdjUThFbzlqNmJwNFVUTWZETU9jNVphRXhQeGRLK0NHdGdqdGpZc1FmODRcbkVGVjFuZWZ5bmJPdmlpZCswYWE3bFUyZCttZnlHYWMwd0RBWXkzWkdYRGZjdXhBZnZlb2tIVnI1VlIzVHJ5NHZcbjVsUDlTN2Nrc05FdnExcVNEL1pGSzkwNWVqZWptTkhDNTdlNVc0TU9CdkNuc0I5QXlQcGxvOFFaK1pGUVJ5MmJcbjZwaXJBWmJEQWdNQkFBRUNnZ0VBQ2NLbSsxWHN1cHBjQkE5YThVYk5lbVhHTmpjS0lPMEg3WmY2elZhbjNHRVhcbm83YWxDaGV1V0NpSDV4MzU4d3V0ZGlWdmQ1VkVZWjhLMUdDYlFzQjIwNWRTVWtPaFJBYmdJZVlCWWJQRERXeDNcbmY1V2xZR1ZRKzZvQ1lETTRCMnBMcjBZaHEwZ0ZwZkE0cGNscWd0U2VLUi9ld0EwWGpjdDhpVmtqSlIwVHVlRVFcbnFMcFY3YnQ0ckw5YzZzYlVsdzVVT2RrZGdxNlEvRDZCU3hMZzdGOEZiclYvWUlJeGRCVkVYZ2RiOHV4V1BQOThcbkRJM29RR1lDekxFdjVVcjhsaUJ2WWU5QTBmbjdKSUVoajJFTXZUQ1JRQk02aGxkem5ZakRBa05Mc1VnbWZqdENcbmpRSlJuSDNDZWRQbDY3alhkL002YTJvQW5SK09PbHR2Y2kzVVRFQUhzUUtCZ1FEaU9zUEdDQWc3NWQzOE5VL25cbnZtSjg0djA4QWNXakdxL2R5OUZUcWZ5ZXZwUjFsdWkrSzhkSkE0TnB5L2pwYU5MOEZEK0RCZDA4WXU3YjVLRXVcbktWUU9WZVY5cUpuRWdHMVFRUjJPT0lVRGxFTmxtVjBtUGVZdGJ3MnQzcVNaRnZLS1RhemxxRGtOK0ExV3ZlQmdcbnh5anRLL0xrQVJ5QlRCQWE5TFhGbTB6enFRS0JnUURMbks1RE5ZM0p4cE1JcTdySy9oT2VIeUNKV2l6TXcyYytcbnd3SGVvczI3SlAya2Z1cmRta2VkZit1NXZ0U01NYnIybDRwVzdTMkNmMEt2cndTbDVhSWlmblM3VHp2aFpEdDBcbkNockk2MzhFdnlEVVFCd1djZkxmY2pka1lySHEvM1FIN0xTdzRpZ1RuTUROYmNEUzhQZzlJM3NuS2NZalArL0xcbnYvVlpJLzA2aXdLQmdIc1h0R3dzOUtYNnRlVkQ4TDFNaHZRaTRkempyZkRJVllhZUhzQ2lEbFVscDB1d0YrVlpcbmxxNXduZkZUelpUYXQybjNibk5SSG9aNzRqRjlYZ0hxOU5SMEFsRjBDbTZ6M2thN2wyUko5bjN6RHhUWjlLZ1pcbktBUHltQVBSejhlSWgrR2UwQU9KbTdteERUajBTWUQrL0pMSHhmb3ZiSjRoaitYSzNwaXRucG81QW9HQUxWTlNcbm81bC9WOFNCcExOOTRJUlEzNmswTi84LzY5RXY0WlBOamI4V0p5dmozc04yQ3lDMkFvU2dkL2ZZSHVGUEttZXZcbm53d3JUbHFBQU5Yb0pmb0picjVSeEFTdVlzMUtRdG1nL3NzVnVudkZsaG96Wm5lMVJqS0p6Q29BU3p6VW1wTUJcbjRrSm1BMytvbDlKdjAwVmJMVmtCcUVVdlcxZDNUUmNOU2V1dUNtTUNnWUVBaE4rSHIzS3B2N01pM1g3THRaRWRcblNGUzdYMDUwUVhyMkZwamg5L3gzcGdzWjVKaUtDendrZmYxRnVaUnNtRUtSTUluYXlSS01QR3dBTDUyYmc3RDBcbjBMaHltb2xRMjBTYWVIandtS3MzcnQ4eDgydi9zM0ErU2Q3S25TdjI4Z01mQSt0azVvYktCQWxCSk1FajNrbFpcblpjOUFnWWpGMlpBSHpwQmxkcWNiUFhBPVxuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwKICAiY2xpZW50X2VtYWlsIjogInNlcmlsb2dAY29vbC1waGFsYW54LTQwNDQwMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsCiAgImNsaWVudF9pZCI6ICIxMTY1ODQ1MzY3MzE2NzExNDAzNjciLAogICJhdXRoX3VyaSI6ICJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9vYXV0aDIvYXV0aCIsCiAgInRva2VuX3VyaSI6ICJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsCiAgImF1dGhfcHJvdmlkZXJfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjEvY2VydHMiLAogICJjbGllbnRfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9yb2JvdC92MS9tZXRhZGF0YS94NTA5L3Nlcmlsb2clNDBjb29sLXBoYWxhbngtNDA0NDAyLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwKICAidW5pdmVyc2VfZG9tYWluIjogImdvb2dsZWFwaXMuY29tIgp9Cg==
@@ -23,7 +23,7 @@ config:
     - https://v1-dev.sleekflow.io
   sleekflow:clients:
     - name: sleekflow-api
-      allowed_logout_urls: [ ]
+      allowed_logout_urls: []
       allowed_origins:
         - https://localhost:5000
         - https://localhost:5001
@@ -51,9 +51,8 @@ config:
         - https://localhost:5003
         - https://localhost:7103
         - https://sleekflow-prod-api-uat-auth0.azurewebsites.net
-
     - name: sleekflow-api-health-check
-      allowed_logout_urls: [ ]
+      allowed_logout_urls: []
       allowed_origins:
         - https://localhost:5000
         - https://sleekflow-core-app-eas-dev.azurewebsites.net
@@ -72,7 +71,6 @@ config:
         - https://localhost:5000
         - https://sleekflow-core-app-eas-dev.azurewebsites.net
         - https://sleekflow-powerflow-app-eas-dev.azurewebsites.net
-
     - name: sleekflow-client-powerflow-app
       initiate_login_uri: https://powerflowdev.z7.web.core.windows.net/login
       allowed_logout_urls:
@@ -109,17 +107,15 @@ config:
         - https://localhost:3000
         - https://powerflow.sleekflow.io
         - https://powerflowdev.z7.web.core.windows.net
-
     - name: sleekflow-client-auth0-actions
-      allowed_logout_urls: [ ]
-      allowed_origins: [ ]
+      allowed_logout_urls: []
+      allowed_origins: []
       app_type: non_interactive
-      callbacks: [ ]
+      callbacks: []
       grant_types:
         - client_credentials
       token_endpoint_auth_method: client_secret_post
-      web_origins: [ ]
-
+      web_origins: []
     - name: sleekflow-client-web-app
       initiate_login_uri: https://v1-dev.sleekflow.io
       allowed_logout_urls:
@@ -173,13 +169,12 @@ config:
         - https://uat2.sleekflow.io
         - https://dev.sleekflow.io
         - https://v1-dev.sleekflow.io
-
     - name: sleekflow-client-mobile-app
       allowed_logout_urls:
         - https://sso-dev.sf.chat/logout/callback
         - https://uat2.sleekflow.io
         - https://uat.sleekflow.io
-      allowed_origins: [ ]
+      allowed_origins: []
       app_type: native
       callbacks:
         - sleekflowauth0://sleekflow-dev.eu.auth0.com/android/io.sleekflow.sleekflow/callback
@@ -192,7 +187,7 @@ config:
         - refresh_token
         - password
         - http://auth0.com/oauth/grant-type/password-realm
-      web_origins: [ ]
+      web_origins: []
       native_client_options:
         ios:
           team_id: JNXJD4KQ2C
@@ -202,13 +197,12 @@ config:
           key_hashes:
             - 4B:7A:FA:CF:5F:56:1E:88:C1:0C:01:7A:EA:5F:61:6C:31:0D:AF:18:59:50:C4:9E:FF:32:8E:31:17:0C:4E:86
             - C8:44:11:BE:74:24:10:92:66:74:36:AE:D3:83:47:FC:44:AE:C5:76:0D:5E:2E:5C:E2:4F:9E:1F:7B:EB:5C:4D
-
     - name: sleekflow-client-mobile-v2-app
       allowed_logout_urls:
         - https://sso-dev.sf.chat/logout/callback
         - https://uat2.sleekflow.io
         - https://uat.sleekflow.io
-      allowed_origins: [ ]
+      allowed_origins: []
       app_type: native
       callbacks:
         - sleekflowauth0://sleekflow-dev.eu.auth0.com/android/io.sleekflow.v2/callback
@@ -221,7 +215,7 @@ config:
         - refresh_token
         - password
         - http://auth0.com/oauth/grant-type/password-realm
-      web_origins: [ ]
+      web_origins: []
       native_client_options:
         ios:
           team_id: JNXJD4KQ2C
@@ -231,7 +225,6 @@ config:
           key_hashes:
             - 4B:7A:FA:CF:5F:56:1E:88:C1:0C:01:7A:EA:5F:61:6C:31:0D:AF:18:59:50:C4:9E:FF:32:8E:31:17:0C:4E:86
             - C8:44:11:BE:74:24:10:92:66:74:36:AE:D3:83:47:FC:44:AE:C5:76:0D:5E:2E:5C:E2:4F:9E:1F:7B:EB:5C:4D
-
     - name: sleekflow-client-reseller-portal-app
       initiate_login_uri: https://partner-uat.sleekflow.io
       app_type: spa
@@ -255,7 +248,6 @@ config:
         - authorization_code
         - implicit
         - refresh_token
-
     - name: sleekflow-client-web-v2-app
       initiate_login_uri: https://dev.sleekflow.io
       allowed_logout_urls:
@@ -301,7 +293,6 @@ config:
         - https://phrase-revamp-uat.sleekflow.io
         - https://sleekflow-chat-react-app.hensontsai.com
         - https://dev.sleekflow.io
-
     - name: sleekflow-client-headless-api-portal-app
       initiate_login_uri: https://headless-api-portal-git-uat.hensontsai.com
       allowed_logout_urls:
@@ -325,7 +316,6 @@ config:
         - http://localhost:3000
         - https://localhost:3000
         - https://headless-api-portal-git-uat.hensontsai.com
-
   sleekflow:connections:
     - name: sleekflow-connection-google-oauth2
       strategy: google-oauth2
@@ -336,10 +326,9 @@ config:
         - sleekflow-client-web-v2-app
         - sleekflow-client-mobile-v2-app
       options:
-        scopes: [ email ]
+        scopes: [email]
         client_id: 94054718414-0igmlaripp17n3asjqd628q7hlqqu1uh.apps.googleusercontent.com
         client_secret: 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
-
     - name: sleekflow-connection-apple
       strategy: apple
       enabled_clients:
@@ -363,7 +352,6 @@ config:
           ZMOHaqSu86PGn0jWzxPRRuNXiqzs4X1rqCTDqOijrV8NvzhnEpCAyuB71eNgI/R2
           BfDl0nBh
           -----END PRIVATE KEY-----
-
   sleekflow:custom_domain:
     is_enabled: true
     domain: sso-dev.sf.chat
@@ -375,7 +363,7 @@ config:
   sleekflow:action_issuer: https://sso-dev.sleekflow.io/
   sleekflow:action_audience: https://api-dev.sleekflow.io/
   sleekflow:jwk_url: https://sso-dev.sf.chat/.well-known/jwks.json
-  sleekflow:enable_custom_domain_in_emails: true
+  sleekflow:enable_custom_domain_in_emails: "true"
   sleekflow:travis_backend_base_url: https://sleekflow-core-dev-e6d7dyf5drg4eag5.z01.azurefd.net
   sleekflow:whatsapp_cloud_api_override_webhook: https://sleekflow-dev-gug7frbbe9grfvhh.z01.azurefd.net/v1/messaging-hub/WhatsappCloudApiWebhook
   sleekflow:auth0_client_id: A8CAuyJshC04w6FYYZZdxAtfoXSvKFnU
