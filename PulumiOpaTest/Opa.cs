@@ -4,6 +4,7 @@ using Pulumi.AzureNative.App;
 using Pulumi.AzureNative.App.V20240301.Inputs;
 using Pulumi.AzureNative.Insights.Inputs;
 using Pulumi.AzureNative.Resources;
+using Pulumi.AzureNative.Web.Inputs;
 using Sleekflow.Infras.Components.Configs;
 using Sleekflow.Infras.Constants;
 using Sleekflow.Infras.Utils;
@@ -48,13 +49,14 @@ public class Opa
     {
         // Step 1: Create an Azure Resource Group
         // var resourceGroup = new ResourceGroup("tenant-hub-rg");
-        var image = GetOpaImage("opa");
+        var opaImage = GetOpaImage("opa");
+        var opalImage = GetOpalImage("opal");
 
         #region Blob Storage
 
         // Step 2: Create an Azure Storage Account
         var storageAccount = new Storage.StorageAccount(
-            "storageAccount",
+            "sleekflow-opa-storage-account",
             new Storage.StorageAccountArgs
             {
                 ResourceGroupName = _resourceGroup.Name,
@@ -67,7 +69,7 @@ public class Opa
 
         // Step 3: Create a Blob Container for policy storage
         var policyStorage = new Storage.BlobContainer(
-            "policiesContainer",
+            "sleekflow-opa-policy-storage",
             new Storage.BlobContainerArgs
             {
                 AccountName = storageAccount.Name,
@@ -80,11 +82,28 @@ public class Opa
                 Parent = storageAccount
             });
 
+        var blobServiceProperties = new Storage.BlobServiceProperties(
+            "sleekflow-opa-blob-service-properties",
+            new Storage.BlobServicePropertiesArgs
+            {
+                AccountName = storageAccount.Name,
+                ResourceGroupName = _resourceGroup.Name,
+                ChangeFeed = new Storage.Inputs.ChangeFeedArgs
+                {
+                    Enabled = true
+                }
+            },
+            new CustomResourceOptions
+            {
+                Parent = storageAccount
+            });
+
         #endregion
 
         #region Opa Server
         // Step 5: Push the OPA and Replicator images to ACR
-        var imageName = Output.Format(
+        /*
+        var opaImageName = Output.Format(
             $"{_registry.LoginServer}/opa:latest");
             // $"{_registry.LoginServer}/{ServiceNames.GetSleekflowPrefixedShortName(ServiceNames.OpenPolicyAgent)}:{_myConfig.BuildTime}");
 
@@ -253,23 +272,122 @@ public class Opa
                                         Value = StorageUtils.GetConnectionString(_resourceGroup.Name, storageAccount.Name)
                                     }
                                 }),
-                            VolumeMounts = new InputList<App.Inputs.VolumeMountArgs>()
+                        },
+                    }
+                });
+
+            // Step 9: Deploy OPAL container
+            var opalApp = new App.ContainerApp(
+                "sleekflow-opal-server",
+                new App.ContainerAppArgs
+                {
+                    ResourceGroupName = _resourceGroup.Name,
+                    ManagedEnvironmentId = managedEnvironment.Id,
+                    Configuration = new App.Inputs.ConfigurationArgs
+                    {
+                        Ingress = new App.Inputs.IngressArgs
+                        {
+                            External = true, TargetPort = 7002
+                        },
+                        Registries = new App.Inputs.RegistryCredentialsArgs
+                        {
+                            Server = _registry.LoginServer,
+                            Username = _registryUsername,
+                            PasswordSecretRef = "registry-password"
+                        }
+                    },
+                    Template = new App.Inputs.TemplateArgs
+                    {
+                        Scale = new App.Inputs.ScaleArgs()
+                        {
+                            MinReplicas = _myConfig.Name.ToLower() == "production" ? 2 : 1,
+                            MaxReplicas = 5,
+                            Rules = new List<ScaleRuleArgs>()
                             {
-                                new App.Inputs.VolumeMountArgs
+                                new App.Inputs.ScaleRuleArgs
                                 {
-                                    VolumeName = "opa-data",
-                                    MountPath = "/data"
-                                }
+                                    Name = "cpu",
+                                    Custom = new App.Inputs.CustomScaleRuleArgs()
+                                    {
+                                        Type = "cpu",
+                                        Metadata =
+                                        {
+                                            {
+                                                "metricName", "cpu"
+                                            },
+                                            {
+                                                "threshold", "70"
+                                            },
+                                            {
+                                                "scaleType", "Rule"
+                                            },
+                                            {
+                                                "operator", "GreaterThan"
+                                            },
+                                        },
+                                        Auth =
+                                        {
+                                            new App.Inputs.ScaleRuleAuthArgs
+                                            {
+                                                SecretRef = "registry-password"
+                                            }
+                                        }
+                                    }
+                                },
                             }
                         },
-                        Volumes = new InputList<App.Inputs.VolumeArgs>()
+                        Containers = new App.Inputs.ContainerArgs
                         {
-                            new App.Inputs.VolumeArgs
+                            Name = "sleekflow-opal-container",
+                            Image = opalImage.BaseImageName,
+                            Resources = new App.Inputs.ContainerResourcesArgs
                             {
-                                Name = "sleekflow-opa-data-volume",
-                                StorageType = "AzureBlob",
-                            }
-                        }
+                                Cpu = 0.5, Memory = "1.0Gi"
+                            },
+                            Env = EnvironmentVariablesUtils.GetDeduplicateEnvironmentVariables(
+                                new List<App.Inputs.EnvironmentVarArgs>
+                                {
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "ASPNETCORE_ENVIRONMENT", Value = "Production",
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "DOTNET_RUNNING_IN_CONTAINER", Value = "true",
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "ASPNETCORE_URLS", Value = "http://+:80",
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                                        Value = managedEnvAndAppsTuple.InsightsComponent.ConnectionString
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "SF_ENVIRONMENT", Value = managedEnvAndAppsTuple.FormatSfEnvironment()
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "SF_LOCATION",
+                                        Value = LocationNames.GetAzureLocation(managedEnvAndAppsTuple.LocationName),
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs
+                                    {
+                                        Name = "BLOB_STORAGE_URL",
+                                        Value = Output.Format(
+                                            $"https://{storageAccount.Name}.blob.core.windows.net/{policyStorage.Name}")
+                                    },
+                                    new App.Inputs.EnvironmentVarArgs()
+                                    {
+                                        Name = "OPAL_DATA_PATH",
+                                        Value = StorageUtils.GetConnectionString(
+                                            _resourceGroup.Name,
+                                            storageAccount.Name)
+                                    }
+                                }),
+                        },
                     }
                 });
 
@@ -327,7 +445,7 @@ public class Opa
             #region Blob Trigger
 
             var appServicePlan = new Web.AppServicePlan(
-                "sleekflow-opa-app-service-plan",
+                "sleekflow-opa-web-app-service-plan",
                 new Web.AppServicePlanArgs
                 {
                     ResourceGroupName = _resourceGroup.Name,
@@ -338,13 +456,40 @@ public class Opa
                         Tier = "Dynamic", Size = "Y1"
                     }
                 });
+
             var webApp = new Web.WebApp(
                 "sleekflow-opa-web-app-blob-trigger",
                 new Web.WebAppArgs()
                 {
-                    ResourceGroupName = _resourceGroup.Name, ServerFarmId = appServicePlan.Id,
+                    ResourceGroupName = _resourceGroup.Name,
+                    ServerFarmId = appServicePlan.Id,
+                    SiteConfig = new Web.Inputs.SiteConfigArgs()
+                    {
+                        AppSettings = new InputList<NameValuePairArgs>()
+                        {
+                            new Web.Inputs.NameValuePairArgs
+                            {
+                                Name = "AzureWebJobsStorage",
+                                Value = Output.Format(
+                                    $"https://{storageAccount.Name}.blob.core.windows.net/{policyStorage.Name}")
+                            },
+                            new Web.Inputs.NameValuePairArgs
+                            {
+                                Name = "FUNCTIONS_EXTENSION_VERSION", Value = "~3"
+                            },
+                            new Web.Inputs.NameValuePairArgs
+                            {
+                                Name = "WEBSITE_RUN_FROM_PACKAGE", Value = "1"
+                            }
+                        }
+                    }
                 });
 
+            #endregion
+
+            #region Event Grid
+            /*
+            // Event subscription
             var blobUpdatedEventSubscription = new EventGrid.EventSubscription(
                 "sleekflow-opa-blob-updated-event-subscription",
                 new EventGrid.EventSubscriptionArgs
@@ -366,10 +511,12 @@ public class Opa
                         IsSubjectCaseSensitive = false
                     }
                 });
+                */
 
             #endregion
 
             containerApps.Add(ServiceNames.OpenPolicyAgent, opaApp);
+            containerApps.Add(ServiceNames.OpenPolicyAdministrationLayer, opalApp);
             // containerApps.Add(ServiceNames.OpenPolicyAgent, replicatorApp);
             // apps.Add();
         }
@@ -405,5 +552,28 @@ public class Opa
             });
 
         return myImage;
+    }
+
+    private Docker.Image GetOpalImage(string imageName)
+    {
+        var myImageName = Output.Format($"{_registry.LoginServer}/{imageName}:{_myConfig.BuildTime}");
+        var opalImage = new Docker.Image(
+            ServiceNames.GetSleekflowPrefixedShortName("opal"),
+            new Docker.ImageArgs
+            {
+                ImageName = Output.Format($"{_registry.LoginServer}/opal:latest"),
+                Build = new Docker.Inputs.DockerBuildArgs
+                {
+                    Dockerfile = "Dockerfile", // Path to your OPAL Dockerfile
+                },
+                Registry = new Docker.Inputs.RegistryArgs
+                {
+                    Server = _registry.LoginServer,
+                    Username = _registryUsername,
+                    Password = _registryPassword
+                }
+            });
+
+        return opalImage;
     }
 }

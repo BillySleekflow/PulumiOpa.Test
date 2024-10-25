@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/PulumiOpaTest.csproj": {}
+    "C:\\Users\\Billy Chan\\Documents\\Work\\Pulumi-Test\\PulumiOpa.Test\\PulumiOpaTest\\PulumiOpaTest.csproj": {}
   },
   "projects": {
-    "/Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/PulumiOpaTest.csproj": {
+    "C:\\Users\\Billy Chan\\Documents\\Work\\Pulumi-Test\\PulumiOpa.Test\\PulumiOpaTest\\PulumiOpaTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/PulumiOpaTest.csproj",
+        "projectUniqueName": "C:\\Users\\Billy Chan\\Documents\\Work\\Pulumi-Test\\PulumiOpa.Test\\PulumiOpaTest\\PulumiOpaTest.csproj",
         "projectName": "PulumiOpaTest",
-        "projectPath": "/Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/PulumiOpaTest.csproj",
-        "packagesPath": "/Users/kahongchan/.nuget/packages/",
-        "outputPath": "/Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/obj/",
+        "projectPath": "C:\\Users\\Billy Chan\\Documents\\Work\\Pulumi-Test\\PulumiOpa.Test\\PulumiOpaTest\\PulumiOpaTest.csproj",
+        "packagesPath": "C:\\Users\\Billy Chan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Billy Chan\\Documents\\Work\\Pulumi-Test\\PulumiOpa.Test\\PulumiOpaTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/kahongchan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Billy Chan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/Sleekflow/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -80,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pulumi_Opa_Test_1
-build_property.ProjectDir = /Users/kahongchan/Documents/ForTest/PulumiOpaTest/PulumiOpaTest/
+build_property.ProjectDir = C:\Users\Billy Chan\Documents\Work\Pulumi-Test\PulumiOpa.Test\PulumiOpaTest\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

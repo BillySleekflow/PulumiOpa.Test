@@ -25,6 +25,7 @@ public static class ServiceNames
     public const string Scheduler = "Scheduler";
     public const string InternalGateway = "InternalGateway";
     public const string OpenPolicyAgent = "OpenPolicyAgent";
+    public const string OpenPolicyAdministrationLayer = "OpenPolicyAdministrationLayer";
 
     public static string GetShortName(string serviceName)
     {
@@ -53,6 +54,7 @@ public static class ServiceNames
             Scheduler => "sch",
             InternalGateway => "igw",
             OpenPolicyAgent => "opa",
+            OpenPolicyAdministrationLayer => "opal",
             _ => throw new Exception("ServiceNames")
         };
     }
