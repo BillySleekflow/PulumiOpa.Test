@@ -1,5 +1,19 @@
+# Pulumi Opa Test 
+Before running this project, you need to install and prepare the following tools:
+- [Pulumi](https://www.pulumi.com/docs/get-started/install/)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
+You should create a new Pulumi account and Azure account before running this project.
 
+## Step 1: Login to Azure CLI
+```bash
+az login
+```
+
+## Step 2: Create a new Pulumi project
+```bash
+pulumi new pulumiOpa
+```
 
 ```console
 (base) kahongchan@BillyChansMBP14 Pulumi Opa Test 1 % az login
