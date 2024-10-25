@@ -12,6 +12,7 @@ az login
 
 ## Step 2: Create a new Pulumi project
 ```bash
+pulumi login
 pulumi new pulumiOpa
 ```
 
